@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.BiFunction;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
@@ -52,5 +53,9 @@ public class ReUseLambdaExp {
                             " Editors with N : " +countEditorsStartN+
                             " Editors with N with Function Predicate : " +countEditorsStartN1);
 
+
+        final Function<String, String> toUpperCase = name -> name.toUpperCase();
+
+        editors.stream().filter(startsWithJ).map(name -> toUpperCase.apply(name)).forEach(System.out::println);
     }
 }

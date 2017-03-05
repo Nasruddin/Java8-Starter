@@ -53,11 +53,9 @@ public class LambdaTest {
 
     public static BigDecimal totalDiscountedPrice8Way() {
 
-        final BigDecimal totaldiscountedPrice =
-                prices.stream()
-                      .filter(price -> price.compareTo(BigDecimal.valueOf(20))> 0)
-                      .map(price -> price.multiply(BigDecimal.valueOf(0.9)))
-                      .reduce(BigDecimal.ZERO, BigDecimal::add);
-        return totaldiscountedPrice;
+        return prices.stream()
+              .filter(price -> price.compareTo(BigDecimal.valueOf(20))> 0)
+              .map(price -> price.multiply(BigDecimal.valueOf(0.9)))
+              .reduce(BigDecimal.ZERO, BigDecimal::add);
     }
 }
